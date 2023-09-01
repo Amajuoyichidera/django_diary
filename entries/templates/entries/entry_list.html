@@ -1,0 +1,26 @@
+<!-- entries/templates/entries/entry_list.html -->
+
+{% extends 'entries/base.html' %}
+
+
+{% block content %}
+
+<article class="add">
+    <a href="{% url 'entry-create' %}"><button>Add new Diary</button></a>
+</article>
+
+    {% for entry in entry_list %}
+    <article>
+        <h2>
+            <a href="{% url 'entry-detail' entry.id %}">
+                {{ entry.title }}
+            </a>
+        </h2>
+        <h4 class="{{ entry.date_created|date:'l' }}">
+            {{ entry.date_created|date:'m-d-Y H:i' }}
+        </h4>
+    </article>
+{% endfor %}
+
+{% endblock content %}
+    

@@ -1,0 +1,17 @@
+<!-- entries/templates/entries/entry_detail.html -->
+
+{% extends 'entries/base.html' %}
+
+
+{% block content %}
+<article>
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.content }}</p>
+    <h4>{{ entry.date_created|date:'Y-m-d H:i' }}</h4>
+</article>
+<p>
+    <a href="{% url 'entry-update' entry.id %}">✍️ Edit</a>
+    <a href="{% url 'entry-delete' entry.id %}">⛔ Delete</a>
+</p>
+{% endblock content %}
+
